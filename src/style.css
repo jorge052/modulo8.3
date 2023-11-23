@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#tablero {
+  display: grid;
+  grid-template-columns: repeat(4, 100px); /* Ajusta el número de columnas según tus necesidades */
+  gap: 10px; /* Espacio entre las cartas */
+}
+
+.carta {
+  width: 100px;
+  height: 150px; /* Ajusta la altura según tus necesidades */
+  background-size: cover;
+  background-color: #ddd; /* Color de fondo cuando la carta está boca abajo */
+  cursor: pointer;
+  border-radius: 8px;
+}
