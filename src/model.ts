@@ -1,5 +1,4 @@
-import {} from "./ui";
-
+// cartas.ts
 export interface Carta {
   idFoto: number;
   imagen: string;
@@ -7,7 +6,7 @@ export interface Carta {
   encontrada: boolean;
 }
 
-interface InfoCarta {
+export interface InfoCarta {
   idFoto: number;
   imagen: string;
 }
@@ -18,6 +17,8 @@ export const infoCartas: InfoCarta[] = [
     imagen:
       "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/memo/1.png",
   },
+  // Agrega aquí las demás cartas
+
   {
     idFoto: 2,
     imagen:
@@ -45,30 +46,6 @@ export const infoCartas: InfoCarta[] = [
   },
 ];
 
-const crearCartaInicial = (idFoto: number, imagen: string): Carta => ({
-  idFoto,
-  imagen,
-  estaVuelta: false,
-  encontrada: false,
-});
-
-export const crearColeccionDeCartasInicial = (
-  infoCartas: InfoCarta[]
-): Carta[] => {
-  const cartasDuplicadas: Carta[] = [];
-
-  for (const infoCarta of infoCartas) {
-    const carta1 = crearCartaInicial(infoCarta.idFoto, infoCarta.imagen);
-    const carta2 = crearCartaInicial(infoCarta.idFoto, infoCarta.imagen);
-
-    cartasDuplicadas.push(carta1, carta2);
-  }
-
-  return cartasDuplicadas;
-};
-
-export let cartas: Carta[] = crearColeccionDeCartasInicial(infoCartas);
-
 type EstadoPartida =
   | "PartidaNoIniciada"
   | "CeroCartasLevantadas"
@@ -84,7 +61,7 @@ export interface Tablero {
 }
 
 export const crearTableroInicial = (): Tablero => ({
-  cartas: cartas,
+  cartas: [],
   estadoPartida: "PartidaNoIniciada",
 });
 
